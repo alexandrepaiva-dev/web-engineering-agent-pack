@@ -31,8 +31,8 @@ if [[ -z "$PROFILE" ]]; then
 fi
 
 RESOLVE_ARGS=()
-for s in "${ADD[@]}"; do RESOLVE_ARGS+=(--add-skill "$s"); done
-for s in "${REMOVE[@]}"; do RESOLVE_ARGS+=(--remove-skill "$s"); done
+for s in "${ADD[@]-}"; do RESOLVE_ARGS+=(--add-skill "$s"); done
+for s in "${REMOVE[@]-}"; do RESOLVE_ARGS+=(--remove-skill "$s"); done
 SKILLS=()
 while IFS= read -r item; do SKILLS+=("$item"); done < <(resolve_profile_skills "$ROOT" "$PROFILE" "${RESOLVE_ARGS[@]}")
 

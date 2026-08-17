@@ -60,7 +60,7 @@ def main():
 
     if state.exists():
         try:
-            data=json.loads(state.read_text())
+            data=json.loads(state.read_text(encoding="utf-8-sig"))
             checks.append({"category":"state","name":"install-state-json","ok":data.get("packVersion") is not None,"value":data})
         except Exception as e:
             checks.append({"category":"state","name":"install-state-json","ok":False,"error":str(e)})

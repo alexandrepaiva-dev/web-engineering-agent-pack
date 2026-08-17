@@ -30,8 +30,8 @@ if [[ -z "$PROFILE" ]]; then
 fi
 
 COMMON=(--profile "$PROFILE")
-for s in "${ADD[@]}"; do COMMON+=(--add-skill "$s"); done
-for s in "${REMOVE[@]}"; do COMMON+=(--remove-skill "$s"); done
+for s in "${ADD[@]-}"; do COMMON+=(--add-skill "$s"); done
+for s in "${REMOVE[@]-}"; do COMMON+=(--remove-skill "$s"); done
 
 if [[ "$DRY" -eq 1 ]]; then
   "$ROOT/scripts/commands/install-codex.sh" "${COMMON[@]}" --dry-run
@@ -64,10 +64,10 @@ if [[ "$THIRD" -eq 1 ]]; then
 fi
 
 STATE_ARGS=()
-for s in "${ADD[@]}"; do STATE_ARGS+=(--add-skill "$s"); done
-for s in "${REMOVE[@]}"; do STATE_ARGS+=(--remove-skill "$s"); done
+for s in "${ADD[@]-}"; do STATE_ARGS+=(--add-skill "$s"); done
+for s in "${REMOVE[@]-}"; do STATE_ARGS+=(--remove-skill "$s"); done
 STATE_SKILLS=()
-while IFS= read -r item; do STATE_SKILLS+=("$item"); done < <(resolve_profile_skills "$ROOT" "$PROFILE" "${STATE_ARGS[@]}")
+while IFS= read -r item; do STATE_SKILLS+=("$item"); done < <(resolve_profile_skills "$ROOT" "$PROFILE" "${STATE_ARGS[@]-}")
 if [[ "$THIRD" -eq 1 ]]; then STATE_THIRD=true; else STATE_THIRD=false; fi
 write_install_state "$PROFILE" "both" "$STATE_THIRD" "${STATE_SKILLS[@]}"
 
