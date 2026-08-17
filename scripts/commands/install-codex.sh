@@ -60,7 +60,9 @@ mkdir -p "$CODEX_HOME" "$SKILLS_PARENT"
 
 stage_skills="$SKILLS_PARENT/.weap-skills-stage-$$"
 stage_agents="$CODEX_HOME/.weap-agents-stage-$$"
-stage_agents_md="$CODEX_HOME/.weap-AGENTS-stage-$$"
+# Do not differ from the agent-directory staging path only by letter case:
+# default macOS filesystems are case-insensitive.
+stage_agents_md="$CODEX_HOME/.weap-codex-instructions-stage-$$"
 
 cleanup_stage() {
   rm -rf "$stage_skills" "$stage_agents"
