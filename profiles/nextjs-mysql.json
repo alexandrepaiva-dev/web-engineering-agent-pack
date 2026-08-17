@@ -1,0 +1,13 @@
+{
+  "name": "nextjs-mysql",
+  "description": "Next.js/Prisma profile using MySQL instead of PostgreSQL.",
+  "extends": [
+    "nextjs"
+  ],
+  "removeSkills": [
+    "postgresql-engineering"
+  ],
+  "skills": [
+    "mysql-engineering"
+  ]
+}

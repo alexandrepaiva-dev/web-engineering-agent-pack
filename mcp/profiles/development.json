@@ -1,0 +1,9 @@
+{
+  "schemaVersion": 1,
+  "name": "development",
+  "description": "Documentation and browser tooling for general web development.",
+  "servers": [
+    "context7",
+    "playwright"
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 1,
+  "packVersion": "9.0.0",
+  "profile": "nextjs",
+  "includeCore": false,
+  "target": "both",
+  "skills": [
+    "typescript-engineering",
+    "react-engineering",
+    "nextjs-engineering"
+  ],
+  "createdFiles": [
+    "CLAUDE.md",
+    ".codex/config.toml"
+  ],
+  "skillHashes": {
+    "codex:typescript-engineering": "0000000000000000000000000000000000000000000000000000000000000000",
+    "claude:typescript-engineering": "0000000000000000000000000000000000000000000000000000000000000000"
+  }
+}

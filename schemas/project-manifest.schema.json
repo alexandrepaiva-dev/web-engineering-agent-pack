@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "packVersion",
+    "profile",
+    "includeCore",
+    "target",
+    "skills"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": 1
+    },
+    "packVersion": {
+      "type": "string"
+    },
+    "profile": {
+      "type": "string"
+    },
+    "includeCore": {
+      "type": "boolean"
+    },
+    "target": {
+      "enum": [
+        "both",
+        "codex",
+        "claude"
+      ]
+    },
+    "skills": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "createdFiles": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "skillHashes": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string",
+        "pattern": "^[a-f0-9]{64}$"
+      }
+    }
+  },
+  "additionalProperties": false
+}

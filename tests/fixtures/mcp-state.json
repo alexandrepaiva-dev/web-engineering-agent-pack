@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "packVersion": "1.0.0",
+  "scope": "project",
+  "servers": {
+    "playwright": {
+      "definitionHash": "0000000000000000000000000000000000000000000000000000000000000000",
+      "targets": [
+        "codex",
+        "claude"
+      ],
+      "enabled": true
+    }
+  }
+}

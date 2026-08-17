@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "name": "custom-http-template",
+  "description": "Template for a custom remote Streamable HTTP MCP server. Copy and edit this definition before use.",
+  "transport": "http",
+  "url": "https://mcp.example.invalid/mcp",
+  "requiredEnv": [],
+  "risk": "high",
+  "writeCapability": true,
+  "defaultApprovalMode": "prompt",
+  "installable": false,
+  "source": {
+    "type": "template"
+  },
+  "versionPolicy": "not-applicable"
+}

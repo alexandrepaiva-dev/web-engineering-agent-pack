@@ -1,0 +1,11 @@
+{
+  "schemaVersion": 1,
+  "packVersion": "7.0.0",
+  "profile": "core",
+  "target": "both",
+  "thirdPartyInstalledByPack": false,
+  "firstPartySkills": [
+    "backend-engineering",
+    "database-engineering"
+  ]
+}

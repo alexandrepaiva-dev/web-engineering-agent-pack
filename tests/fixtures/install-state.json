@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "packVersion": "1.0.0",
+  "profile": "core",
+  "target": "both",
+  "thirdPartyInstalledByPack": false,
+  "firstPartySkills": [
+    "backend-engineering"
+  ],
+  "recommendedThirdPartySkills": [
+    "ui-ux-pro-max",
+    "web-quality-audit"
+  ]
+}

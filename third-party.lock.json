@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "reviewedAt": "2026-08-16",
+  "dependencies": [
+    {
+      "name": "ui-ux-pro-max",
+      "repository": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill.git",
+      "commit": "a38d04c3d5c298c851dbe5e6ee1965ee3de42cb5",
+      "license": "MIT",
+      "install": {
+        "strategy": "git-snapshot",
+        "sourcePath": "src/ui-ux-pro-max"
+      }
+    },
+    {
+      "name": "web-quality-audit",
+      "repository": "https://github.com/addyosmani/web-quality-skills.git",
+      "commit": "95d6e255afe1596b557d7a8498517884438f5b3a",
+      "license": "MIT",
+      "install": {
+        "strategy": "git-snapshot",
+        "sourcePath": "skills/web-quality-audit"
+      }
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "packVersion": "8.0.0",
+  "profile": "nextjs",
+  "includeCore": false,
+  "target": "both",
+  "skills": [
+    "typescript-engineering",
+    "react-engineering",
+    "nextjs-engineering"
+  ],
+  "createdFiles": [
+    "CLAUDE.md",
+    ".codex/config.toml"
+  ]
+}

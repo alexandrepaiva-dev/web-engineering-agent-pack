@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "name",
+    "version",
+    "supports",
+    "skills",
+    "profiles"
+  ],
+  "properties": {
+    "name": {
+      "const": "web-engineering-agent-pack"
+    },
+    "version": {
+      "type": "string"
+    },
+    "supports": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "skills": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "profiles": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "productionHardening": {
+      "type": "object"
+    }
+  },
+  "additionalProperties": true
+}

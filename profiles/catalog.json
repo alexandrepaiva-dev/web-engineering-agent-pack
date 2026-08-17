@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "recommendedGlobalProfile": "core",
+  "recommendedProjectProfiles": [
+    "nextjs",
+    "symfony"
+  ],
+  "groups": {
+    "core": [
+      "appsec-review",
+      "architecture-review",
+      "auth-security",
+      "backend-engineering",
+      "bug-investigation",
+      "ci-cd",
+      "code-review",
+      "database-engineering",
+      "dependency-upgrades",
+      "docker-devops",
+      "email-delivery",
+      "feature-delivery",
+      "file-storage",
+      "observability",
+      "payments-engineering",
+      "performance-profiling",
+      "testing-playwright",
+      "web-frontend-engineering"
+    ],
+    "nextjs": [
+      "typescript-engineering",
+      "react-engineering",
+      "tailwind-engineering",
+      "nextjs-engineering",
+      "nodejs-engineering",
+      "authjs-engineering",
+      "prisma-engineering",
+      "postgresql-engineering",
+      "async-jobs"
+    ],
+    "symfony": [
+      "php-engineering",
+      "symfony-engineering",
+      "symfony-security",
+      "doctrine-engineering",
+      "mysql-engineering",
+      "twig-engineering"
+    ]
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "name": "playwright",
+  "description": "Official Microsoft Playwright MCP server for browser automation through structured page state.",
+  "transport": "stdio",
+  "command": "npx",
+  "args": [
+    "-y",
+    "@playwright/mcp@0.0.78"
+  ],
+  "requiredEnv": [],
+  "risk": "medium",
+  "writeCapability": true,
+  "defaultApprovalMode": "writes",
+  "installable": true,
+  "source": {
+    "type": "official-repository",
+    "url": "https://github.com/microsoft/playwright-mcp"
+  },
+  "versionPolicy": "pinned-package-version"
+}

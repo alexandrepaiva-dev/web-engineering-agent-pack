@@ -1,0 +1,56 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write
+  id-token: write
+  attestations: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: "3.13"
+      - run: python -m pip install --disable-pip-version-check jsonschema
+      - name: Resolve release version/channel
+        id: meta
+        shell: bash
+        run: |
+          version="${GITHUB_REF_NAME#v}"
+          if [[ "$version" == *-* ]]; then channel="preview"; else channel="stable"; fi
+          echo "version=$version" >> "$GITHUB_OUTPUT"
+          echo "channel=$channel" >> "$GITHUB_OUTPUT"
+      - name: Build release artifacts
+        run: |
+          python scripts/release.py \
+            --version "${{ steps.meta.outputs.version }}" \
+            --channel "${{ steps.meta.outputs.channel }}" \
+            --output-dir dist
+      - name: Verify checksum
+        working-directory: dist
+        run: sha256sum -c SHA256SUMS
+      - name: Attest release archive provenance
+        uses: actions/attest@1e69f48acb82d1966a394da916b4c1698aa569d6 # v4.2.2
+        with:
+          subject-path: dist/web-engineering-agent-pack-${{ steps.meta.outputs.version }}.zip
+      - name: Publish GitHub Release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          prerelease=""
+          if [[ "${{ steps.meta.outputs.channel }}" == "preview" ]]; then prerelease="--prerelease"; fi
+          gh release create "${GITHUB_REF_NAME}" \
+            dist/web-engineering-agent-pack-${{ steps.meta.outputs.version }}.zip \
+            dist/SHA256SUMS \
+            dist/release.json \
+            --title "Web Engineering Agent Pack ${{ steps.meta.outputs.version }}" \
+            --notes-file "dist/RELEASE-NOTES-${{ steps.meta.outputs.version }}.md" \
+            $prerelease

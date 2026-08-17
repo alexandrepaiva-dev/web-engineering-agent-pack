@@ -1,0 +1,6 @@
+# Project-scoped Codex config; loaded for trusted projects.
+# Do not commit private tokens or credentials.
+
+[agents]
+enabled = true
+max_concurrent_threads_per_session = 6

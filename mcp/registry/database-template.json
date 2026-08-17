@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "name": "database-template",
+  "description": "Template for an organization-specific database MCP integration. Prefer read-only database roles and explicit project ownership.",
+  "transport": "stdio",
+  "command": "your-database-mcp-command",
+  "args": [],
+  "requiredEnv": [
+    "DATABASE_URL"
+  ],
+  "risk": "critical",
+  "writeCapability": true,
+  "defaultApprovalMode": "prompt",
+  "installable": false,
+  "source": {
+    "type": "template"
+  },
+  "versionPolicy": "organization-managed"
+}

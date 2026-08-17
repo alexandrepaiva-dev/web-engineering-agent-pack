@@ -1,0 +1,9 @@
+{
+  "name": "full",
+  "description": "All first-party skills for Next.js and Symfony.",
+  "extends": [
+    "nextjs",
+    "symfony"
+  ],
+  "skills": []
+}

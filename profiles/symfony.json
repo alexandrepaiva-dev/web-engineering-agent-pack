@@ -1,0 +1,15 @@
+{
+  "name": "symfony",
+  "description": "PHP/Symfony/Symfony Security/Doctrine/MySQL/Twig.",
+  "extends": [
+    "core"
+  ],
+  "skills": [
+    "php-engineering",
+    "symfony-engineering",
+    "symfony-security",
+    "doctrine-engineering",
+    "mysql-engineering",
+    "twig-engineering"
+  ]
+}

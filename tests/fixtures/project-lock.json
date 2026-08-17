@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "packVersion": "1.0.0",
+  "profile": "nextjs",
+  "includeCore": false,
+  "target": "both",
+  "skills": [
+    "nextjs-engineering"
+  ],
+  "sourceSkillHashes": {
+    "nextjs-engineering": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  "mcp": null
+}

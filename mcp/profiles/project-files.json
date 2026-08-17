@@ -1,0 +1,8 @@
+{
+  "schemaVersion": 1,
+  "name": "project-files",
+  "description": "Explicit project-root filesystem capability.",
+  "servers": [
+    "filesystem-project"
+  ]
+}

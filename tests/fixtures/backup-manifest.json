@@ -1,0 +1,10 @@
+{
+  "schemaVersion": 1,
+  "packVersion": "1.0.0",
+  "createdAt": "2026-08-16T13:00:00+00:00",
+  "reason": "test",
+  "codexHome": "/tmp/.codex",
+  "claudeHome": "/tmp/.claude",
+  "codexSkillsHome": "/tmp/.agents/skills",
+  "items": {}
+}

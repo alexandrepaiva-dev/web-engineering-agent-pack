@@ -1,0 +1,98 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "packVersion",
+    "profile",
+    "includeCore",
+    "target",
+    "skills",
+    "sourceSkillHashes"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": 1
+    },
+    "packVersion": {
+      "type": "string",
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+(?:-[0-9A-Za-z.-]+)?$"
+    },
+    "profile": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9-]*$"
+    },
+    "includeCore": {
+      "type": "boolean"
+    },
+    "target": {
+      "enum": [
+        "both",
+        "codex",
+        "claude"
+      ]
+    },
+    "skills": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "sourceSkillHashes": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string",
+        "pattern": "^[a-f0-9]{64}$"
+      }
+    },
+    "mcp": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "scope": {
+          "const": "project"
+        },
+        "servers": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "required": [
+              "definitionHash",
+              "targets",
+              "enabled"
+            ],
+            "properties": {
+              "definitionHash": {
+                "type": "string",
+                "pattern": "^[a-f0-9]{64}$"
+              },
+              "targets": {
+                "type": "array",
+                "items": {
+                  "enum": [
+                    "codex",
+                    "claude"
+                  ]
+                },
+                "uniqueItems": true
+              },
+              "enabled": {
+                "type": "boolean"
+              }
+            },
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "scope",
+        "servers"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

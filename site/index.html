@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Multi-stack engineering skills and workflows for Codex and Claude Code.">
+  <title>Web Engineering Agent Pack</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <header class="nav shell">
+    <a class="brand" href="./">
+      <span class="brand-mark">&lt;/&gt;</span>
+      <span>WEAP</span>
+    </a>
+    <nav>
+      <a href="#profiles">Profiles</a>
+      <a href="#mcp">MCP</a>
+      <a href="#workflow">Workflow</a>
+      <a href="#trust">Trust</a>
+      <a data-repo-link href="#">GitHub</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero shell">
+      <div class="eyebrow">Web Engineering Agent Pack <span data-version></span></div>
+      <h1>Production engineering standards your coding agents can actually reuse.</h1>
+      <p class="lede">
+        Multi-stack skills, project profiles, review agents, safe installation,
+        reproducible lockfiles, CI, backup/restore, and release tooling for Codex and Claude Code.
+      </p>
+      <div class="actions">
+        <a class="button primary" data-repo-link href="#">View on GitHub</a>
+        <a class="button" href="#quickstart">Quick start</a>
+      </div>
+      <div class="terminal">
+        <div class="terminal-bar"><span></span><span></span><span></span></div>
+        <pre><code>$ ./weap doctor
+$ ./weap install --profile core --with-third-party
+$ ./weap project init --detect --team --project-dir=. --yes
+$ ./weap audit</code></pre>
+      </div>
+    </section>
+
+    <section class="metrics shell">
+      <article><strong data-skill-count>33</strong><span>first-party skills</span></article>
+      <article><strong data-profile-count>6</strong><span>stack profiles</span></article>
+      <article><strong>5</strong><span>opt-in MCP profiles</span></article>
+      <article><strong>SHA-256 + attestation</strong><span>release integrity</span></article>
+    </section>
+
+    <section class="section shell" id="profiles">
+      <div class="section-heading">
+        <span>Profiles</span>
+        <h2>Load the engineering context that belongs to the repository.</h2>
+        <p>Keep CORE global, then add only the stack delta your project uses—or use team mode for a self-contained repository.</p>
+      </div>
+      <div class="grid profiles" data-profiles></div>
+    </section>
+
+
+    <section class="section shell" id="mcp">
+      <div class="section-heading">
+        <span>MCP</span>
+        <h2>External capabilities stay explicit, scoped, and reviewable.</h2>
+        <p>WEAP keeps MCP separate from skill profiles. Plan first, inspect risk, then opt in per project or user scope.</p>
+      </div>
+      <div class="grid profiles" data-mcp-profiles></div>
+      <div class="terminal">
+        <pre><code>$ ./weap mcp plan --profile development --scope project --project-dir=.
+$ ./weap mcp install --profile development --scope project --project-dir=.
+$ ./weap mcp doctor --scope project --project-dir=.</code></pre>
+      </div>
+    </section>
+
+    <section class="section shell" id="workflow">
+      <div class="section-heading">
+        <span>Workflow</span>
+        <h2>From install to rollback without hand-managed agent folders.</h2>
+      </div>
+      <div class="steps">
+        <article><b>01</b><h3>Detect</h3><p>Inspect safe project metadata and recommend a matching profile.</p></article>
+        <article><b>02</b><h3>Install</h3><p>Stage, validate, snapshot, and transactionally replace managed state.</p></article>
+        <article><b>03</b><h3>Lock</h3><p>Record profile, pack version, and SHA-256 hashes for reproducibility.</p></article>
+        <article><b>04</b><h3>Audit</h3><p>Lint skills/profiles, validate schemas/docs, and check context budgets.</p></article>
+        <article><b>05</b><h3>Restore</h3><p>Recover global or project-managed state from explicit snapshots.</p></article>
+      </div>
+    </section>
+
+    <section class="section shell split" id="trust">
+      <div class="section-heading">
+        <span>Supply-chain trust</span>
+        <h2>Built to be inspectable, reversible, and verifiable.</h2>
+      </div>
+      <div class="trust-list">
+        <p><i>✓</i> Third-party skills pinned to reviewed Git commit SHAs</p>
+        <p><i>✓</i> Transactional global installs with rollback</p>
+        <p><i>✓</i> GitHub artifact provenance attestations for release ZIPs</p>
+        <p><i>✓</i> SHA-256 release checksums</p>
+        <p><i>✓</i> Linux, macOS, and Windows CI</p>
+        <p><i>✓</i> Security regression and historical migration tests</p>
+      </div>
+    </section>
+
+    <section class="section shell" id="quickstart">
+      <div class="section-heading">
+        <span>Quick start</span>
+        <h2>One CLI. Existing scripts remain compatible.</h2>
+      </div>
+      <div class="code-grid">
+        <div><h3>Global CORE</h3><pre><code>./weap install \
+  --profile core \
+  --with-third-party</code></pre></div>
+        <div><h3>Next.js project</h3><pre><code>./weap project init \
+  --profile nextjs \
+  --project-dir=. \
+  --yes</code></pre></div>
+        <div><h3>Symfony project</h3><pre><code>./weap project init \
+  --profile symfony \
+  --project-dir=. \
+  --yes</code></pre></div>
+        <div><h3>Self-contained team mode</h3><pre><code>./weap project init \
+  --detect --team \
+  --project-dir=. --yes</code></pre></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="shell">
+    <span>Web Engineering Agent Pack</span>
+    <span>MIT licensed · <a data-repo-link href="#">Source on GitHub</a></span>
+  </footer>
+  <script src="./site-data.js"></script>
+  <script src="./app.js"></script>
+</body>
+</html>

@@ -1,0 +1,10 @@
+{
+  "schemaVersion": 1,
+  "name": "development-full",
+  "description": "Documentation, browser, and project filesystem capabilities. Includes a high-risk write-capable filesystem server.",
+  "servers": [
+    "context7",
+    "playwright",
+    "filesystem-project"
+  ]
+}

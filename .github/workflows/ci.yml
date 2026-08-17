@@ -1,0 +1,73 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  linux:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: "3.13"
+      - run: python -m pip install --disable-pip-version-check jsonschema
+      - run: python scripts/validate-pack.py
+      - run: python scripts/validate-schemas.py
+      - run: python scripts/lint-skills.py
+      - run: python scripts/lint-profiles.py
+      - run: python scripts/generate-docs.py
+      - run: python scripts/generate-compatibility.py
+      - run: python scripts/doctor.py --json
+      - run: python scripts/analyze-context-budget.py
+      - run: python scripts/analyze-package-size.py
+      - run: python scripts/docs-consistency.py
+      - run: python scripts/language-audit.py
+      - run: python scripts/build-site.py
+      - run: test -f _site/index.html && test -f _site/site-data.js
+      - run: python -m unittest tests.test_profiles tests.test_docs_consistency tests.test_schema_files tests.test_project_lifecycle tests.test_project_backup tests.test_security tests.test_release tests.test_project_lock tests.test_migrate tests.test_migration_matrix tests.test_update tests.test_distribution tests.test_mcp
+      - run: bash tests/run-shell-tests.sh
+      - run: python scripts/release.py --version 1.0.0 --channel stable --output-dir dist-ci
+      - run: cd dist-ci && sha256sum -c SHA256SUMS
+
+  windows:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: "3.13"
+      - run: python -m pip install --disable-pip-version-check jsonschema
+      - run: python scripts/validate-pack.py
+      - run: python scripts/validate-schemas.py
+      - run: python scripts/lint-skills.py
+      - run: python scripts/lint-profiles.py
+      - run: python scripts/generate-docs.py
+      - run: python scripts/generate-compatibility.py
+      - run: python scripts/doctor.py --json
+      - run: python -m unittest tests.test_profiles tests.test_docs_consistency tests.test_schema_files tests.test_project_lifecycle tests.test_project_backup tests.test_security tests.test_release tests.test_project_lock tests.test_migrate tests.test_migration_matrix tests.test_update tests.test_distribution tests.test_mcp
+      - shell: pwsh
+        run: .\tests\run-powershell-tests.ps1
+
+  macos:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: "3.13"
+      - run: python -m pip install --disable-pip-version-check jsonschema
+      - run: python scripts/validate-pack.py
+      - run: python scripts/validate-schemas.py
+      - run: python scripts/lint-skills.py
+      - run: python scripts/lint-profiles.py
+      - run: python scripts/docs-consistency.py
+      - run: python scripts/language-audit.py
+      - run: python scripts/analyze-context-budget.py
+      - run: python scripts/analyze-package-size.py
+      - run: python -m unittest tests.test_profiles tests.test_docs_consistency tests.test_schema_files tests.test_project_lifecycle tests.test_project_backup tests.test_security tests.test_release tests.test_project_lock tests.test_migrate tests.test_migration_matrix tests.test_update tests.test_distribution tests.test_mcp
+      - run: bash tests/run-shell-tests.sh

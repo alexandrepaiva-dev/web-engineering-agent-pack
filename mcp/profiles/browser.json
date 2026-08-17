@@ -1,0 +1,8 @@
+{
+  "schemaVersion": 1,
+  "name": "browser",
+  "description": "Browser automation with the official Playwright MCP server.",
+  "servers": [
+    "playwright"
+  ]
+}

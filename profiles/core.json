@@ -1,0 +1,26 @@
+{
+  "name": "core",
+  "description": "Stack-agnostic production web engineering. Recommended globally.",
+  "extends": [],
+  "skills": [
+    "appsec-review",
+    "architecture-review",
+    "auth-security",
+    "backend-engineering",
+    "bug-investigation",
+    "ci-cd",
+    "code-review",
+    "database-engineering",
+    "dependency-upgrades",
+    "docker-devops",
+    "email-delivery",
+    "feature-delivery",
+    "file-storage",
+    "observability",
+    "payments-engineering",
+    "performance-profiling",
+    "testing-playwright",
+    "web-frontend-engineering",
+    "mcp-engineering"
+  ]
+}

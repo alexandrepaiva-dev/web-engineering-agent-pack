@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "packVersion",
+    "profile",
+    "target",
+    "firstPartySkills"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": 1
+    },
+    "packVersion": {
+      "type": "string"
+    },
+    "profile": {
+      "type": "string"
+    },
+    "target": {
+      "enum": [
+        "both",
+        "codex",
+        "claude"
+      ]
+    },
+    "thirdPartyInstalledByPack": {
+      "type": "boolean"
+    },
+    "firstPartySkills": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "recommendedThirdPartySkills": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "additionalProperties": false
+}

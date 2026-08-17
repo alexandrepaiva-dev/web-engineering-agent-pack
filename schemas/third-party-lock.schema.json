@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "reviewedAt",
+    "dependencies"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": 1
+    },
+    "reviewedAt": {
+      "type": "string"
+    },
+    "dependencies": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "name",
+          "repository",
+          "commit",
+          "license",
+          "install"
+        ],
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "repository": {
+            "type": "string"
+          },
+          "commit": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{40}$"
+          },
+          "license": {
+            "type": "string"
+          },
+          "install": {
+            "type": "object",
+            "required": [
+              "strategy",
+              "sourcePath"
+            ]
+          }
+        },
+        "additionalProperties": true
+      }
+    }
+  },
+  "additionalProperties": false
+}

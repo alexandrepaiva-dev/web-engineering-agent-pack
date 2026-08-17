@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "name": "context7",
+  "description": "Developer documentation context server used in the official Codex MCP documentation example.",
+  "transport": "stdio",
+  "command": "npx",
+  "args": [
+    "-y",
+    "@upstash/context7-mcp@3.2.5"
+  ],
+  "requiredEnv": [],
+  "risk": "low",
+  "writeCapability": false,
+  "defaultApprovalMode": "auto",
+  "installable": true,
+  "source": {
+    "type": "official-repository-and-package",
+    "url": "https://github.com/upstash/context7",
+    "packageVersion": "3.2.5"
+  },
+  "versionPolicy": "pinned-package-version"
+}

@@ -1,0 +1,13 @@
+{
+  "name": "symfony-postgresql",
+  "description": "Symfony/Doctrine profile using PostgreSQL instead of MySQL.",
+  "extends": [
+    "symfony"
+  ],
+  "removeSkills": [
+    "mysql-engineering"
+  ],
+  "skills": [
+    "postgresql-engineering"
+  ]
+}

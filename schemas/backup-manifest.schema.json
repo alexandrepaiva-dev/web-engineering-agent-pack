@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "packVersion",
+    "createdAt",
+    "reason",
+    "items"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": 1
+    },
+    "packVersion": {
+      "type": "string"
+    },
+    "createdAt": {
+      "type": "string"
+    },
+    "reason": {
+      "type": "string"
+    },
+    "codexHome": {
+      "type": "string"
+    },
+    "claudeHome": {
+      "type": "string"
+    },
+    "codexSkillsHome": {
+      "type": "string"
+    },
+    "items": {
+      "type": "object"
+    }
+  },
+  "additionalProperties": true
+}

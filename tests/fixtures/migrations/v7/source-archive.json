@@ -1,0 +1,146 @@
+{
+  "archive": "web-engineering-agent-pack-v7.zip",
+  "sha256": "daf0fb124952a225c8474bdf56972e660d5ad515b9ff9799267c8399b99fc088",
+  "sourceManifestPath": "web-engineering-agent-pack-v7/manifest.json",
+  "sourceManifestVersion": "7.0.0",
+  "sourceManifest": {
+    "name": "web-engineering-agent-pack",
+    "version": "7.0.0",
+    "verified": "2026-08-15",
+    "supports": [
+      "OpenAI Codex CLI/IDE",
+      "Anthropic Claude Code/VS Code"
+    ],
+    "skills": [
+      "appsec-review",
+      "architecture-review",
+      "async-jobs",
+      "auth-security",
+      "authjs-engineering",
+      "backend-engineering",
+      "bug-investigation",
+      "ci-cd",
+      "code-review",
+      "database-engineering",
+      "dependency-upgrades",
+      "docker-devops",
+      "doctrine-engineering",
+      "email-delivery",
+      "feature-delivery",
+      "file-storage",
+      "mysql-engineering",
+      "nextjs-engineering",
+      "nodejs-engineering",
+      "observability",
+      "payments-engineering",
+      "performance-profiling",
+      "php-engineering",
+      "postgresql-engineering",
+      "prisma-engineering",
+      "react-engineering",
+      "symfony-engineering",
+      "symfony-security",
+      "tailwind-engineering",
+      "testing-playwright",
+      "twig-engineering",
+      "typescript-engineering",
+      "web-frontend-engineering"
+    ],
+    "sharedReferenceFiles": 208,
+    "codexAgents": 5,
+    "claudeAgents": 5,
+    "newSkillsV3": [
+      "observability",
+      "appsec-review",
+      "payments-engineering",
+      "email-delivery",
+      "file-storage",
+      "performance-profiling",
+      "ci-cd",
+      "dependency-upgrades",
+      "architecture-review",
+      "bug-investigation",
+      "feature-delivery"
+    ],
+    "recommendedExternalSkills": [
+      {
+        "name": "ui-ux-pro-max",
+        "source": "nextlevelbuilder/ui-ux-pro-max-skill",
+        "bundled": false
+      },
+      {
+        "name": "web-quality-audit",
+        "source": "addyosmani/web-quality-skills",
+        "bundled": false
+      }
+    ],
+    "contextEfficiency": {
+      "manualOnlyClaudeSkills": [
+        "architecture-review",
+        "ci-cd",
+        "dependency-upgrades",
+        "performance-profiling"
+      ],
+      "analysisScript": "scripts/analyze-context-budget.py",
+      "policyDocument": "TOKEN-EFFICIENCY.md"
+    },
+    "installationPolicy": {
+      "mode": "clean-managed-directories",
+      "backupRoot": "~/.ai-agent-pack-backups",
+      "thirdPartyReinstallRequiredAfterCleanInstall": true,
+      "restoreIsReversible": true
+    },
+    "backupTools": [
+      "list-backups",
+      "restore-backup",
+      "cleanup-backups"
+    ],
+    "architecture": "multi-stack-profile-based",
+    "profiles": [
+      "core",
+      "full",
+      "nextjs",
+      "nextjs-mysql",
+      "symfony",
+      "symfony-postgresql"
+    ],
+    "recommendedSetup": {
+      "globalProfile": "core",
+      "projectProfiles": [
+        "nextjs",
+        "symfony"
+      ],
+      "reason": "Minimizes cross-stack trigger noise and persistent skill metadata."
+    },
+    "projectInstallation": {
+      "managedManifest": ".web-engineering-agent-pack.json",
+      "preservesUnmanagedProjectSkills": true,
+      "defaultInstallsStackDeltaOnly": true
+    },
+    "skillCount": 33,
+    "profileCount": 6,
+    "targetStacks": {
+      "core": "stack-agnostic web engineering",
+      "nextjs": [
+        "TypeScript",
+        "React",
+        "Tailwind CSS",
+        "Next.js",
+        "Node.js",
+        "Auth.js",
+        "Prisma ORM",
+        "PostgreSQL",
+        "Redis/Valkey",
+        "BullMQ"
+      ],
+      "symfony": [
+        "PHP",
+        "Symfony",
+        "Symfony Security",
+        "Doctrine ORM/DBAL",
+        "MySQL/InnoDB",
+        "Twig"
+      ]
+    }
+  }
+}
