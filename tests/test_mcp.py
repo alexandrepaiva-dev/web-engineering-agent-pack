@@ -1,4 +1,4 @@
-import importlib.util,json,os,tempfile,unittest
+import importlib.util,json,os,tempfile,tomllib,unittest
 from pathlib import Path
 from types import SimpleNamespace
 from unittest.mock import patch
@@ -41,8 +41,8 @@ class McpManagerTest(unittest.TestCase):
             p=Path(td)
             mcp.cmd_install(self.install_args(p,"filesystem-project",allow=True))
             codex=(p/".codex/config.toml").read_text()
-            # TOML strings escape Windows path separators.
-            self.assertIn(json.dumps(str(p))[1:-1],codex)
+            codex_args=tomllib.loads(codex)["mcp_servers"]["filesystem-project"]["args"]
+            self.assertTrue(os.path.samefile(codex_args[-1],p))
             claude=json.loads((p/".mcp.json").read_text())
             args=claude["mcpServers"]["filesystem-project"]["args"]
             self.assertIn("${CLAUDE_PROJECT_DIR:-.}",args)
